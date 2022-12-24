@@ -3,6 +3,9 @@ sys.path.append("..")
 from My_Library.Library_Opera.Data_ import *
 from My_Library.Library_Base.Library_Book_System import *
 
+class MyInputError(Exception):
+    pass
+
 class Person():
     def __init__(self, username):
         self.data = Data()
@@ -124,6 +127,7 @@ class Admin(Person):
             else:
                 return "admin quit"
 
+
     def user_info(self):
         #show all the users info
         self.data.show_user_info()
@@ -152,8 +156,11 @@ class Admin(Person):
                     except:
                         print("Please check the input legitimacy")
                     else:
-                        if abs(modify_point - self.data.get_person_info_num(
-                                modify_username)[1]) > 20:
+                        try:
+                            if abs(modify_point - self.data.get_person_info_num(
+                                    modify_username)[1]) > 20:
+                                raise MyInputError()
+                        except MyInputError:
                             print("You can only change 20 points one time")
                             temp_modify = 0
                         else:
