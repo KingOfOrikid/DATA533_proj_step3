@@ -9,6 +9,14 @@ class TestLibrary(unittest.TestCase):
     def tearDownClass(self):
         print('successful')
 
+    def test_menu(self):
+        print('0')
+        self.assertEqual(self.lib.library_menu(),None)
+        print('1 q')
+        self.assertEqual(self.lib.library_menu(),'sign in')
+        print('2 q')
+        self.assertEqual(self.lib.library_menu(),'register')
+
     def test_sign(self):
         self.assertEqual(self.lib.sign_in_test('q',''),'quit')
         self.assertEqual(self.lib.sign_in_test('a','a'),"Please check your username and password!")
