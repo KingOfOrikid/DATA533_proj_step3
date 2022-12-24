@@ -32,11 +32,13 @@ class Library():
 
         if choose == 1:
             self.sign_in()
+            return "sign in"
         elif choose == 2:
             self.register()
+            return "register"
         else:
             print("Bye!")
-            return
+            return None
 
     def sign_in(self):
         temp_sign_in = 0

@@ -16,6 +16,7 @@ class Book_system():
             print("Author: {}".format(info[1]))
             print("Discription: {}".format(info[2]))
             print("Position: {}".format(info[3]))
+        return None
 
     def all_book(self):
         info = self.data.get_all_book()
@@ -25,6 +26,7 @@ class Book_system():
             print("Author: {}".format(info[key][1]))
             print("Discription: {}".format(info[key][2]))
             print("Position: {}".format(info[key][3]))
+        return None
 
     def search_position(self):
         position_in = input(
